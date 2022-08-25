@@ -1,0 +1,12 @@
+.search {
+  /* height: 44px; */
+  display: none;
+  flex: 2;
+  align-self: center;
+}
+
+@media screen and (min-width: 768px) {
+  .search {
+    display: block;
+  }
+}

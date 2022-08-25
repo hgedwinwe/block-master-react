@@ -1,0 +1,37 @@
+@import './bullet.css';
+@import './scroll-buttons.css';
+
+.slider-content {
+  /* border: 1px solid red; */
+  text-align: center;
+  position: relative;
+}
+
+.slide-container {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.slider-slide {
+  /* border: 1px solid yellow; */
+  display: inline-block;
+  min-inline-size: 100%;
+}
+
+.slider-slide .image {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.slider-slide .image img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+.slide-container::-webkit-scrollbar{
+  display: none;
+}

@@ -1,0 +1,26 @@
+.items {
+  display: none;
+  flex-direction: row;
+  color: var(--white);
+  gap: 3rem;
+  align-self: center;
+}
+
+.item {
+  list-style: none;
+}
+
+.item a {
+  font: var(--body2-bold);
+}
+.item a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+
+@media screen and (min-width: 768px) {
+  .items{
+    display: flex;
+  }
+}

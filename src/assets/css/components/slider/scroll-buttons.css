@@ -1,0 +1,16 @@
+.scroll-buttons {
+  position: absolute;
+  inset-block-end: 3.5rem;
+  inset-inline-start: 1.5rem;
+  display: none;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+
+
+@media screen and (min-width: 768px){
+    .scroll-buttons {
+        display: flex;
+    }
+}

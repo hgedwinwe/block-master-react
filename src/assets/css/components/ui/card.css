@@ -1,0 +1,25 @@
+.card {
+  position: relative;
+}
+
+.card-content {
+  /* max-inline-size: 5rem; */
+  max-inline-size: 13.75rem;
+  cursor: pointer;
+}
+
+.card .image {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card .image img {
+  inline-size: 100%;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 576px) {
+  .card-content {
+    max-inline-size: 13.75rem;
+  }
+}

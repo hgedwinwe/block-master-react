@@ -1,0 +1,28 @@
+@import './movies-grid.css';
+@import './movies-item.css';
+
+.movies {
+  margin-block-start: 1rem;
+}
+
+.movies-content {
+  /* border: 1px solid yellow; */
+  margin-block-end: 2rem;
+}
+
+.movies-content .title {
+  font: var(--body2-bold);
+  color: var(--white);
+  margin-block-end: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .movies {
+    margin-block-start: 3.5rem;
+  }
+
+  .movies-content .title {
+    font: var(--headline1);
+    margin-block-end: 3rem;
+  }
+}

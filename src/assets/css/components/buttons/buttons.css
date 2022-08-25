@@ -1,0 +1,47 @@
+.btn {
+  font: var(--button);
+  padding-block: 0.625rem;
+  padding-inline: 1.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn i {
+  font-size: 1.5rem;
+}
+
+.btn-yelow {
+  background-color: var(--primary);
+}
+
+.btn-yelow:hover {
+  background-color: var(--black);
+  color: var(--primary);
+}
+
+.btn-black {
+  background-color: var(--black);
+  color: var(--primary);
+}
+
+.btn-black:hover {
+  background-color: var(--primary);
+  color: var(--black);
+}
+
+
+.btn-icon {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  background: transparent;
+  color: var(--primary);
+  border: none;
+  font: var(--button);
+}

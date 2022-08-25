@@ -1,0 +1,36 @@
+@import './items.css';
+@import './search-input.css';
+@import './search-hamburguer.css';
+
+
+.navigation {
+  block-size: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  gap: 3rem;
+}
+
+.logo {
+  width: 66px;
+  height: 40px;
+
+  align-self: center;
+}
+
+.logo img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 768px) {
+  .navigation {
+    block-size: 7rem;
+  }
+
+  .logo {
+    width: 107px;
+    height: 64px;
+  }
+}

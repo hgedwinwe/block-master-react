@@ -1,0 +1,29 @@
+.silder-bullet-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  margin-block-start: 0.5rem;
+}
+
+.bullet {
+  display: inline-block;
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background: var(--grey);
+}
+
+.bullet.bullet-selected {
+  background: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+  .bullet {
+    inline-size: 0.75rem;
+    block-size: 0.75rem;
+  }
+  .silder-bullet-list {
+    margin-block-start: 1.5rem;
+  }
+}
