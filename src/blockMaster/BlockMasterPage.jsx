@@ -1,6 +1,9 @@
+import { MovieList } from './';
 
 export const BlockMasterPage = () => {
   return (
-    <div>BlockMasterPage</div>
-  )
-}
+    <>
+      <MovieList />
+    </>
+  );
+};
