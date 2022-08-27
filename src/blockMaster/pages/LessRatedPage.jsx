@@ -1,3 +1,5 @@
+import { MovieList } from '../components/MovieList';
+
 export const LessRatedPage = () => {
-  return <div>LessRatedPage</div>;
+  return <MovieList type="less-rated" />;
 };

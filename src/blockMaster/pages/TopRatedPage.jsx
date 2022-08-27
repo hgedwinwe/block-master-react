@@ -1,6 +1,5 @@
+import { MovieList } from '../';
 
 export const TopRatedPage = () => {
-  return (
-    <div>TopRatedPage</div>
-  )
-}
+  return <MovieList type="top-rated" />;
+};

@@ -4,6 +4,7 @@
 .slider-content {
   text-align: center;
   position: relative;
+  max-height: 310px;
 }
 
 .slide-container {
@@ -12,6 +13,8 @@
   overflow: auto;
   scroll-behavior: smooth;
   white-space: nowrap;
+  max-height: 310px;
+  gap: 1.5rem;
 }
 
 .slider-slide {
@@ -21,6 +24,7 @@
 }
 
 .slider-slide .image {
+  max-height: 310px;
   border-radius: 0.5rem;
   overflow: hidden;
 }
