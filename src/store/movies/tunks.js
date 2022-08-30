@@ -1,5 +1,6 @@
 import { getEnvVariables } from '../../helpers';
 import {
+  isOnLoadingMovie,
   onGetAllMovies,
   onGetLessRated,
   onGetTopRated,
@@ -12,12 +13,14 @@ const { VITE_MDB_API_URL, VITE_API_KEY } = getEnvVariables();
 export const startLoadinMovies = (page = 1) => {
   return async (dispatch) => {
     try {
+      dispatch(isOnLoadingMovie(true));
       const url = `${VITE_MDB_API_URL}/discover/movie?api_key=${VITE_API_KEY}&language=es-ES&page=${page}`;
       const resp = await fetch(url);
       const { results } = await resp.json();
 
       console.log('start load movies');
       dispatch(onLoadMovies(results));
+      dispatch(isOnLoadingMovie(false));
     } catch (error) {
       console.log('Error cargando peliculas');
       console.log(error);
@@ -46,12 +49,14 @@ export const startLoadLessRated = () => {
 export const startLoadinCovers = () => {
   return async (dispatch) => {
     try {
+      dispatch(isOnLoadingMovie(true));
       const url = `${VITE_MDB_API_URL}/movie/now_playing?api_key=${VITE_API_KEY}&language=es-ES&page=1`;
       const resp = await fetch(url);
       const { results } = await resp.json();
 
       console.log('start load covers');
       dispatch(onLoadCovers(results));
+      dispatch(isOnLoadingMovie(false));
     } catch (error) {
       console.log('Error cargando cover de peliculas');
       console.log(error);

@@ -8,3 +8,18 @@
 @import './assets/css/wrapper.css';
 @import './assets/css/components/slider/slider.css';
 @import './assets/css/components/movies/movies.css';
+@import './assets/css/components/loading.css';
+
+
+.content{
+    text-align: center;
+    padding-block: 2rem;
+}
+
+.content.slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    block-size: 19.375rem;
+}

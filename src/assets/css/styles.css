@@ -8,6 +8,7 @@
 @import './wrapper.css';
 @import './components/slider/slider.css';
 @import './components/movies/movies.css';
+@import './components/loading.css';
 
 .container{
     border: 1px solid red;

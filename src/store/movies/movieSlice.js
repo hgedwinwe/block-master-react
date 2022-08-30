@@ -34,6 +34,10 @@ export const movieSlice = createSlice({
       state.title = 'Peliculas menos valoradas';
       state.lessRated = state.movies.filter((resp) => resp.vote_average < 7);
     },
+
+    isOnLoadingMovie: (state, { payload }) => {
+      state.isLoadingMovies = payload;
+    },
   },
 });
 
@@ -43,4 +47,5 @@ export const {
   onGetTopRated,
   onLoadCovers,
   onLoadMovies,
+  isOnLoadingMovie,
 } = movieSlice.actions;
