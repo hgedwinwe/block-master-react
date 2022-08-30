@@ -1,7 +1,11 @@
-import { AppRouter } from "./router/AppRouter"
+import { Provider } from 'react-redux';
+import { AppRouter } from './router/AppRouter';
+import { store } from './store';
 
 export const BlockMasterApp = () => {
   return (
-    <AppRouter />
-  )
-}
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
+  );
+};

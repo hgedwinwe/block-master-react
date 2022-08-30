@@ -1,2 +1,2 @@
-export * from './useFetchMovie';
+export * from './useMovie';
 export * from './useFetchMoviePlayingNow';
