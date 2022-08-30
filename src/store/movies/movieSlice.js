@@ -8,9 +8,14 @@ export const movieSlice = createSlice({
     movies: [],
     topRated: [],
     lessRated: [],
+    covers: [],
     movieSelected: null,
   },
   reducers: {
+    onLoadCovers: (state, { payload }) => {
+      state.covers = payload;
+    },
+
     onLoadMovies: (state, { payload }) => {
       state.movies = payload;
     },
@@ -32,5 +37,10 @@ export const movieSlice = createSlice({
   },
 });
 
-export const { onLoadMovies, onGetAllMovies, onGetTopRated, onGetLessRated } =
-  movieSlice.actions;
+export const {
+  onGetAllMovies,
+  onGetLessRated,
+  onGetTopRated,
+  onLoadCovers,
+  onLoadMovies,
+} = movieSlice.actions;

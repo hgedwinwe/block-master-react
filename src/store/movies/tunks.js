@@ -3,6 +3,7 @@ import {
   onGetAllMovies,
   onGetLessRated,
   onGetTopRated,
+  onLoadCovers,
   onLoadMovies,
 } from './movieSlice';
 
@@ -39,5 +40,21 @@ export const startLoadonTopRated = () => {
 export const startLoadLessRated = () => {
   return (dispatch) => {
     dispatch(onGetLessRated());
+  };
+};
+
+export const startLoadinCovers = () => {
+  return async (dispatch) => {
+    try {
+      const url = `${VITE_MDB_API_URL}/movie/now_playing?api_key=${VITE_API_KEY}&language=es-ES&page=1`;
+      const resp = await fetch(url);
+      const { results } = await resp.json();
+
+      console.log('start load covers');
+      dispatch(onLoadCovers(results));
+    } catch (error) {
+      console.log('Error cargando cover de peliculas');
+      console.log(error);
+    }
   };
 };
