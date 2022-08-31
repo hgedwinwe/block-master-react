@@ -1,11 +1,13 @@
 import { getEnvVariables } from '../../helpers';
 import {
   isOnLoadingMovie,
+  onDisabledCurrentMovie,
   onGetAllMovies,
   onGetLessRated,
   onGetTopRated,
   onLoadCovers,
   onLoadMovies,
+  onSelectedCurrentMovie,
 } from './movieSlice';
 
 const { VITE_MDB_API_URL, VITE_API_KEY } = getEnvVariables();
@@ -61,5 +63,17 @@ export const startLoadinCovers = () => {
       console.log('Error cargando cover de peliculas');
       console.log(error);
     }
+  };
+};
+
+export const startSelectMovie = (movieSelected) => {
+  return (dispatch) => {
+    dispatch(onSelectedCurrentMovie(movieSelected));
+  };
+};
+
+export const startDisabledSelectMovie = () => {
+  return (dispatch) => {
+    dispatch(onDisabledCurrentMovie());
   };
 };

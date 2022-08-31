@@ -38,6 +38,14 @@ export const movieSlice = createSlice({
     isOnLoadingMovie: (state, { payload }) => {
       state.isLoadingMovies = payload;
     },
+
+    onSelectedCurrentMovie: (state, { payload }) => {
+      state.movieSelected = payload;
+    },
+
+    onDisabledCurrentMovie: (state) => {
+      state.movieSelected = null;
+    },
   },
 });
 
@@ -48,4 +56,6 @@ export const {
   onLoadCovers,
   onLoadMovies,
   isOnLoadingMovie,
+  onSelectedCurrentMovie,
+  onDisabledCurrentMovie,
 } = movieSlice.actions;

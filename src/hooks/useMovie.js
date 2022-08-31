@@ -1,27 +1,23 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { onGetTopRated, startLoadonTopRated } from '../store';
+import { startDisabledSelectMovie, startSelectMovie } from '../store';
 
 export const useMovie = () => {
   const dispatch = useDispatch();
-  const { movies, title } = useSelector((state) => state.movie);
 
-  const allMovies = () => movies;
+  const { movieSelected } = useSelector((state) => state.movie);
 
-  // const topRated = () => [...movies].filter((resp) => resp.vote_average > 7);
-  const topRated = () => {
-    console.log('se ejecuta en hook');
-    const moviejj = [...movies];
-    useEffect(() => {
-      dispatch(startLoadonTopRated(moviejj));
-    }, []);
+  const selectedCurrentMovie = (movieSelected) => {
+    dispatch(startSelectMovie(movieSelected));
   };
 
-  return {
-    title,
-    movies,
+  const setDisabledCurrentMovie = () => dispatch(startDisabledSelectMovie());
 
-    allMovies,
-    topRated,
+  return {
+    //propiedades
+    movieSelected,
+
+    //metodos
+    selectedCurrentMovie,
+    setDisabledCurrentMovie,
   };
 };

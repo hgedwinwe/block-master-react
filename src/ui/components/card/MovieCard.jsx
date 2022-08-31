@@ -1,13 +1,16 @@
 import { getEnvVariables } from '../../../helpers';
-import { useUiStore } from '../../../hooks';
+import { useMovie, useUiStore } from '../../../hooks';
 
-export const MovieCard = ({ id, poster_path, vote_average, riginal_title }) => {
+// export const MovieCard = ({ id, poster_path, vote_average, riginal_title, movie }) => {
+export const MovieCard = ({ movie }) => {
   const { VITE_MDB_API_IMAGE_URL } = getEnvVariables();
-  const imgPoster = `${VITE_MDB_API_IMAGE_URL}${poster_path}`;
+  const imgPoster = `${VITE_MDB_API_IMAGE_URL}${movie.poster_path}`;
 
   const { openModal } = useUiStore();
+  const { selectedCurrentMovie } = useMovie();
 
   const handleClick = () => {
+    selectedCurrentMovie(movie);
     openModal();
   };
 
@@ -20,17 +23,17 @@ export const MovieCard = ({ id, poster_path, vote_average, riginal_title }) => {
               {/* <div className="ranking-content "> */}
               <div
                 className={
-                  vote_average < 7
+                  movie.vote_average < 7
                     ? 'ranking-content is-featured'
                     : 'ranking-content'
                 }
               >
                 <i className="icon-star"></i>
-                <span className="point">{vote_average}</span>
+                <span className="point">{movie.vote_average}</span>
               </div>
             </div>
             <div className="image">
-              <img src={imgPoster} alt={riginal_title} />
+              <img src={imgPoster} alt={movie.riginal_title} />
             </div>
           </div>
         </div>

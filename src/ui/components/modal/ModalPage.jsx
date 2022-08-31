@@ -1,11 +1,32 @@
-import { useUiStore } from '../../../hooks';
+import { useEffect } from 'react';
+import { getEnvVariables } from '../../../helpers';
+import { useMovie, useUiStore } from '../../../hooks';
 
 export const ModalPage = () => {
+  const { VITE_MDB_API_IMAGE_URL } = getEnvVariables();
+
   const { isModalOpen, closeModal } = useUiStore();
+  const { movieSelected, setDisabledCurrentMovie } = useMovie();
+
+  const imgPoster = `${VITE_MDB_API_IMAGE_URL}${movieSelected?.poster_path}`;
 
   const handleCloseModal = () => {
+    setDisabledCurrentMovie();
     closeModal();
   };
+
+  useEffect(() => {
+    const close = (e) => {
+      if (e.key === 'Escape') {
+        setDisabledCurrentMovie();
+        closeModal();
+      }
+    };
+    window.addEventListener('keydown', close);
+    return () => {
+      window.removeEventListener('keydown', close);
+    };
+  }, []);
 
   return (
     <>
@@ -19,21 +40,13 @@ export const ModalPage = () => {
           </div>
           <div className="modal-body">
             <div className="modal-body-image">
-              <img
-                src="https://image.tmdb.org/t/p/w500/miZFgV81xG324rpUknQX8dtXuBl.jpg"
-                alt=""
-              />
+              <img src={imgPoster} alt={movieSelected?.original_title} />
             </div>
             <div className="modal-body-description">
-              <h2>Infamus</h2>
-              <p>
-                Arielle nació en un pueblo pequeño, pero sueña con ser famosa.
-                Tras conocer a Dean, un delincuente, la pareja empieza a asaltar
-                negocios y presumir de sus fechorías en las redes sociales, en
-                busca de una notoriedad manchada de sangre.
-              </p>
+              <h2>{movieSelected?.original_title}</h2>
+              <p> {movieSelected?.overview}</p>
               <div className="description-time">
-                <span>2020</span>
+                <span>{movieSelected?.release_date}</span>
                 <span>crimen suspenso</span>
                 <span>1h 40m</span>
               </div>

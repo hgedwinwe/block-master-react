@@ -18,7 +18,7 @@ export const MovieList = ({ movies = [], title = '' }) => {
                 <h2 className="title">{title}</h2>
                 <div className="grid-movies">
                   {movies.map((movie) => (
-                    <MovieCard key={movie.id} {...movie} />
+                    <MovieCard key={movie.id} movie={movie} />
                   ))}
                 </div>
               </>

@@ -11,5 +11,9 @@ export const BlockMasterPage = () => {
     dispatch(startLoadAll());
   }, []);
 
-  return <MovieList movies={movies} title={title} />;
+  return (
+    <>
+      <MovieList movies={movies} title={title} />
+    </>
+  );
 };
