@@ -9,6 +9,7 @@
 @import './components/slider/slider.css';
 @import './components/movies/movies.css';
 @import './components/loading.css';
+@import './components/modal/modal.css';
 
 .container{
     border: 1px solid red;

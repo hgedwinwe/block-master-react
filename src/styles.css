@@ -1,14 +1,6 @@
 @import './assets/css/fonts.css';
 @import './assets/css/base.css';
-@import './assets/css/components/buttons/buttons.css';
-@import './assets/css/components/inputs/search-input.css';
-@import './assets/css/components/ui/ranking-point.css';
-@import './assets/css/components/ui/card.css';
-@import './assets/css/components/header/header.css';
-@import './assets/css/wrapper.css';
-@import './assets/css/components/slider/slider.css';
-@import './assets/css/components/movies/movies.css';
-@import './assets/css/components/loading.css';
+@import './assets/css/styles.css';
 
 
 .content{

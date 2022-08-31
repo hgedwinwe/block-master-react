@@ -1,14 +1,20 @@
 import { getEnvVariables } from '../../../helpers';
+import { useUiStore } from '../../../hooks';
 
 export const MovieCard = ({ id, poster_path, vote_average, riginal_title }) => {
   const { VITE_MDB_API_IMAGE_URL } = getEnvVariables();
-
   const imgPoster = `${VITE_MDB_API_IMAGE_URL}${poster_path}`;
+
+  const { openModal } = useUiStore();
+
+  const handleClick = () => {
+    openModal();
+  };
 
   return (
     <>
       <div className="movie-item">
-        <div className="card">
+        <div className="card" onClick={handleClick}>
           <div className="card-content">
             <div className="ranking-point">
               {/* <div className="ranking-content "> */}

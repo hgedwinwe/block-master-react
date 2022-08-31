@@ -1,0 +1,36 @@
+@import './modal-header.css';
+@import './modal-body.css';
+
+.modalPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background);
+  opacity: 0.97;
+  overflow-y: auto;
+}
+
+.modal-content {
+  margin-block: 1rem;
+  margin-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+@media screen and (min-width: 768px){
+
+.modal-content {
+  
+    margin-block: 8rem;
+    margin-inline: 5.1875rem;
+    gap: 3rem;
+  }
+}
+
+.modalPage.show-modal{
+  display: none;
+}

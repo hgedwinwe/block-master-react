@@ -1,0 +1,9 @@
+.modal-header {
+  flex: 1;
+  margin-left: auto;
+}
+
+.modal-header span {
+  font-size: 1.5rem;
+  cursor: pointer;
+}

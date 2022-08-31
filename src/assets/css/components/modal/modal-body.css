@@ -1,0 +1,24 @@
+@import './modal-body-description.css';
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+.modal-body .modal-body-image {
+  text-align: center;
+  flex: 1;
+}
+
+.modal-body .modal-body-image img {
+  width: 50%;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-body {
+    flex-direction: row;
+  }
+}
