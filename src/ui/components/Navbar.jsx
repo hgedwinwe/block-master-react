@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo-block-buster.png';
 
 export const Navbar = () => {
@@ -12,16 +12,28 @@ export const Navbar = () => {
             </div>
             <ul className="items">
               <li className="item">
-                {/* <a href="#">Todas</a> */}
-                <Link to="/">Todas</Link>
+                <NavLink
+                  className={({ isActive }) => `${isActive ? 'active' : ''}`}
+                  to="/"
+                >
+                  Todas
+                </NavLink>
               </li>
               <li className="item">
-                {/* <a href="#">Más valoradas</a> */}
-                <Link to="top-rated">Más valoradas</Link>
+                <NavLink
+                  className={({ isActive }) => `${isActive ? 'active' : ''}`}
+                  to="top-rated"
+                >
+                  Más valoradas
+                </NavLink>
               </li>
               <li className="item">
-                {/* <a href="#">Menos valoradas</a> */}
-                <Link to="less-rated">Menos valoradas</Link>
+                <NavLink
+                  className={({ isActive }) => `${isActive ? 'active' : ''}`}
+                  to="less-rated"
+                >
+                  Menos valoradas
+                </NavLink>
               </li>
             </ul>
             <div className="search">
