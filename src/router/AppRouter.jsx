@@ -1,6 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { BlockMasterPage, LessRatedPage, TopRatedPage } from '../blockMaster';
+import {
+  BlockMasterPage,
+  LessRatedPage,
+  SearchPage,
+  TopRatedPage,
+} from '../blockMaster';
 import { startLoadinCovers, startLoadinMovies } from '../store';
 import { Navbar, Slider } from '../ui';
 
@@ -18,6 +23,7 @@ export const AppRouter = () => {
         <Route path="/" element={<BlockMasterPage />} />
         <Route path="/top-rated" element={<TopRatedPage />} />
         <Route path="/less-rated" element={<LessRatedPage />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </>
   );

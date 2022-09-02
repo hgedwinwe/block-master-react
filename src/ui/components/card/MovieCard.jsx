@@ -1,10 +1,17 @@
 import { getEnvVariables } from '../../../helpers';
 import { useMovie, useUiStore } from '../../../hooks';
+import noImage from '../../../assets/images/Searching.svg';
 
 // export const MovieCard = ({ id, poster_path, vote_average, riginal_title, movie }) => {
 export const MovieCard = ({ movie }) => {
   const { VITE_MDB_API_IMAGE_URL } = getEnvVariables();
-  const imgPoster = `${VITE_MDB_API_IMAGE_URL}${movie.poster_path}`;
+
+  const imagePoster =
+    movie.poster_path !== null
+      ? `${VITE_MDB_API_IMAGE_URL}${movie.poster_path}`
+      : noImage;
+
+  // const imgPoster = `${VITE_MDB_API_IMAGE_URL}${movie.poster_path}`;
 
   const { openModal } = useUiStore();
   const { selectedCurrentMovie } = useMovie();
@@ -33,7 +40,7 @@ export const MovieCard = ({ movie }) => {
               </div>
             </div>
             <div className="image">
-              <img src={imgPoster} alt={movie.riginal_title} />
+              <img src={imagePoster} alt={movie.riginal_title} />
             </div>
           </div>
         </div>

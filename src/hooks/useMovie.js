@@ -1,10 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { startDisabledSelectMovie, startSelectMovie } from '../store';
+import {
+  startDisabledSelectMovie,
+  startLoadingMovieSearch,
+  startSelectMovie,
+} from '../store';
 
 export const useMovie = () => {
   const dispatch = useDispatch();
 
-  const { movieSelected } = useSelector((state) => state.movie);
+  const { movieSelected, isLoadingMovies, movieSearch } = useSelector(
+    (state) => state.movie
+  );
 
   const selectedCurrentMovie = (movieSelected) => {
     dispatch(startSelectMovie(movieSelected));
@@ -12,12 +18,19 @@ export const useMovie = () => {
 
   const setDisabledCurrentMovie = () => dispatch(startDisabledSelectMovie());
 
+  const searchMovie = (movie) => {
+    dispatch(startLoadingMovieSearch(movie));
+  };
+
   return {
     //propiedades
     movieSelected,
+    isLoadingMovies,
+    movieSearch,
 
     //metodos
     selectedCurrentMovie,
     setDisabledCurrentMovie,
+    searchMovie,
   };
 };

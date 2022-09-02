@@ -9,6 +9,7 @@ export const movieSlice = createSlice({
     topRated: [],
     lessRated: [],
     covers: [],
+    movieSearch: [],
     movieSelected: null,
   },
   reducers: {
@@ -46,6 +47,10 @@ export const movieSlice = createSlice({
     onDisabledCurrentMovie: (state) => {
       state.movieSelected = null;
     },
+
+    onSearchMovie: (state, { payload }) => {
+      state.movieSearch = payload;
+    },
   },
 });
 
@@ -58,4 +63,5 @@ export const {
   isOnLoadingMovie,
   onSelectedCurrentMovie,
   onDisabledCurrentMovie,
+  onSearchMovie,
 } = movieSlice.actions;

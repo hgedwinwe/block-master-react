@@ -7,6 +7,7 @@ import {
   onGetTopRated,
   onLoadCovers,
   onLoadMovies,
+  onSearchMovie,
   onSelectedCurrentMovie,
 } from './movieSlice';
 
@@ -20,7 +21,6 @@ export const startLoadinMovies = (page = 1) => {
       const resp = await fetch(url);
       const { results } = await resp.json();
 
-      console.log('start load movies');
       dispatch(onLoadMovies(results));
       dispatch(isOnLoadingMovie(false));
     } catch (error) {
@@ -56,7 +56,6 @@ export const startLoadinCovers = () => {
       const resp = await fetch(url);
       const { results } = await resp.json();
 
-      console.log('start load covers');
       dispatch(onLoadCovers(results));
       dispatch(isOnLoadingMovie(false));
     } catch (error) {
@@ -75,5 +74,23 @@ export const startSelectMovie = (movieSelected) => {
 export const startDisabledSelectMovie = () => {
   return (dispatch) => {
     dispatch(onDisabledCurrentMovie());
+  };
+};
+
+export const startLoadingMovieSearch = (movieSearch) => {
+  return async (dispatch) => {
+    try {
+      dispatch(isOnLoadingMovie(true));
+      // https://api.themoviedb.org/3/search/movie?api_key=1a874ef005de067ae1ee5fe75031c734&language=en-US&query=Poquemon&page=1
+      const url = `${VITE_MDB_API_URL}/search/movie?api_key=${VITE_API_KEY}&language=es-ES&query=${movieSearch}&page=1`;
+      const resp = await fetch(url);
+      const { results } = await resp.json();
+
+      dispatch(onSearchMovie(results));
+      dispatch(isOnLoadingMovie(false));
+    } catch (error) {
+      console.log('Error buscando peliculas');
+      console.log(error);
+    }
   };
 };

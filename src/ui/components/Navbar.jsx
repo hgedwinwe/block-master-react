@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo-block-buster.png';
+import { Search } from '../';
 
 export const Navbar = () => {
   return (
@@ -36,19 +37,7 @@ export const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            <div className="search">
-              <form>
-                <div className="input-search">
-                  <input
-                    type="text"
-                    placeholder="Buscar tu pelicula favorita"
-                  />
-                  <span>
-                    <i className="icon-search"></i>
-                  </span>
-                </div>
-              </form>
-            </div>
+            <Search />
             <div className="search-hamburguer">
               <button className="btn-icon">
                 <i className="icon-search"></i>
