@@ -1,5 +1,6 @@
 @import './modal-header.css';
 @import './modal-body.css';
+@import './modal-search.css';
 
 .modalPage {
   position: fixed;
@@ -10,6 +11,7 @@
   background: var(--background);
   opacity: 0.97;
   overflow-y: auto;
+  z-index: 999;
 }
 
 .modal-content {
@@ -20,17 +22,18 @@
   gap: 1rem;
 }
 
-
-@media screen and (min-width: 768px){
-
-.modal-content {
-  
+@media screen and (min-width: 768px) {
+  .modal-content {
     margin-block: 8rem;
     margin-inline: 5.1875rem;
     gap: 3rem;
   }
 }
 
-.modalPage.show-modal{
+.modalPage.show-modal {
+  display: none;
+}
+
+.modalSearch.show-modal {
   display: none;
 }

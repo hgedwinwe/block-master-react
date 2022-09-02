@@ -4,6 +4,7 @@ export const uiSlice = createSlice({
   name: 'ui',
   initialState: {
     isModalOpen: false,
+    searchModalOpen: false,
   },
   reducers: {
     onOpenModal: (state) => {
@@ -13,7 +14,20 @@ export const uiSlice = createSlice({
     onCloseModal: (state) => {
       state.isModalOpen = false;
     },
+
+    onOpenModalSearch: (state) => {
+      state.searchModalOpen = true;
+    },
+
+    onCloseModalSearch: (state) => {
+      state.searchModalOpen = false;
+    },
   },
 });
 
-export const { onOpenModal, onCloseModal } = uiSlice.actions;
+export const {
+  onCloseModal,
+  onCloseModalSearch,
+  onOpenModal,
+  onOpenModalSearch,
+} = uiSlice.actions;

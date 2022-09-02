@@ -51,6 +51,10 @@ export const movieSlice = createSlice({
     onSearchMovie: (state, { payload }) => {
       state.movieSearch = payload;
     },
+
+    onClearSearchMovie: (state) => {
+      state.movieSearch = [];
+    },
   },
 });
 
@@ -64,4 +68,5 @@ export const {
   onSelectedCurrentMovie,
   onDisabledCurrentMovie,
   onSearchMovie,
+  onClearSearchMovie,
 } = movieSlice.actions;

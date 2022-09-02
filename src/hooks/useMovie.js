@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  startclearMovie,
   startDisabledSelectMovie,
   startLoadingMovieSearch,
   startSelectMovie,
@@ -22,6 +23,10 @@ export const useMovie = () => {
     dispatch(startLoadingMovieSearch(movie));
   };
 
+  const clearMovie = () => {
+    dispatch(startclearMovie());
+  };
+
   return {
     //propiedades
     movieSelected,
@@ -32,5 +37,6 @@ export const useMovie = () => {
     selectedCurrentMovie,
     setDisabledCurrentMovie,
     searchMovie,
+    clearMovie,
   };
 };

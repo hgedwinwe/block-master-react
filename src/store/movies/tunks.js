@@ -1,6 +1,7 @@
 import { getEnvVariables } from '../../helpers';
 import {
   isOnLoadingMovie,
+  onClearSearchMovie,
   onDisabledCurrentMovie,
   onGetAllMovies,
   onGetLessRated,
@@ -92,5 +93,11 @@ export const startLoadingMovieSearch = (movieSearch) => {
       console.log('Error buscando peliculas');
       console.log(error);
     }
+  };
+};
+
+export const startclearMovie = () => {
+  return (dispatch) => {
+    dispatch(onClearSearchMovie());
   };
 };

@@ -1,12 +1,18 @@
 .search {
   /* height: 44px; */
-  display: none;
-  flex: 2;
+  /* display: none; */
+  /* flex: 2; */
+  /* align-self: center; */
+}
+
+.search-contet {
   align-self: center;
+  flex: 2;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .search {
+  .search-contet {
     display: block;
   }
 }

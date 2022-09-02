@@ -1,8 +1,16 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo-block-buster.png';
 import { Search } from '../';
+import { useUiStore } from '../../hooks';
 
 export const Navbar = () => {
+  const { openModalSearch } = useUiStore();
+
+  const openSearch = () => {
+    console.log('open....');
+    openModalSearch();
+  };
+
   return (
     <>
       <header className="header">
@@ -37,9 +45,11 @@ export const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            <Search />
+            <div className="search-contet">
+              <Search />
+            </div>
             <div className="search-hamburguer">
-              <button className="btn-icon">
+              <button onClick={openSearch} className="btn-icon">
                 <i className="icon-search"></i>
               </button>
               <button className="btn-icon">

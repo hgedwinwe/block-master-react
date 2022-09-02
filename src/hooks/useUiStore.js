@@ -1,9 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onCloseModal, onOpenModal } from '../store';
+import {
+  onCloseModal,
+  onCloseModalSearch,
+  onOpenModal,
+  onOpenModalSearch,
+} from '../store';
 
 export const useUiStore = () => {
   const dispatch = useDispatch();
-  const { isModalOpen } = useSelector((state) => state.ui);
+  const { isModalOpen, searchModalOpen } = useSelector((state) => state.ui);
 
   /* ······························ */
   const openModal = () => {
@@ -15,12 +20,25 @@ export const useUiStore = () => {
     dispatch(onCloseModal());
   };
 
+  /* ······························ */
+  const openModalSearch = () => {
+    dispatch(onOpenModalSearch());
+  };
+
+  /* ······························ */
+  const closeModalSearch = () => {
+    dispatch(onCloseModalSearch());
+  };
+
   return {
     // * propiedad
     isModalOpen,
+    searchModalOpen,
 
     // * metodos
     openModal,
     closeModal,
+    openModalSearch,
+    closeModalSearch,
   };
 };

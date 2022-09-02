@@ -1,0 +1,32 @@
+.modalSearch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background);
+  overflow-y: auto;
+  z-index: 99;
+}
+
+.ms-header {
+  block-size: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 0.75rem;
+}
+
+.ms-header .search-content {
+  flex: 1;
+}
+
+.btn-back {
+  display: inline-block;
+}
+.btn-back i {
+  color: var(--primary);
+  font: var(--button);
+  font-size: 2rem;
+}
