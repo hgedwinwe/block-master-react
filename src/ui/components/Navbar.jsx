@@ -16,7 +16,7 @@ export const Navbar = () => {
     <>
       <header className="header">
         <div className="wrapper">
-          <nav className="navigation">
+          <nav className="navigation" aria-label="Navegación">
             <div className="logo">
               <img src={logo} alt="Logo block master" />
             </div>
@@ -25,6 +25,7 @@ export const Navbar = () => {
                 <NavLink
                   className={({ isActive }) => `${isActive ? 'active' : ''}`}
                   to="/"
+                  aria-current="page"
                 >
                   Todas
                 </NavLink>
@@ -33,6 +34,7 @@ export const Navbar = () => {
                 <NavLink
                   className={({ isActive }) => `${isActive ? 'active' : ''}`}
                   to="top-rated"
+                  aria-current="page"
                 >
                   Más valoradas
                 </NavLink>
@@ -41,6 +43,7 @@ export const Navbar = () => {
                 <NavLink
                   className={({ isActive }) => `${isActive ? 'active' : ''}`}
                   to="less-rated"
+                  aria-current="page"
                 >
                   Menos valoradas
                 </NavLink>
@@ -51,11 +54,12 @@ export const Navbar = () => {
             </div>
             <div className="search-hamburguer">
               <button onClick={openSearch} className="btn-icon">
-                <i className="icon-search"></i>
+                <i className="icon-search" aria-hidden="true"></i>
               </button>
               <button onClick={toggle} className="btn-icon">
                 <i
                   className={`${!isMenuOpen ? 'icon-menu' : 'icon-delete'}`}
+                  aria-hidden="true"
                 ></i>
               </button>
             </div>

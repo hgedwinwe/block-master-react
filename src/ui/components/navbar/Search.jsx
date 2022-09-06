@@ -26,7 +26,7 @@ export const Search = () => {
 
   return (
     <>
-      <div className="search">
+      <div className="search" aria-label="buscador">
         <form onSubmit={handleSubmit}>
           <div className="input-search">
             <input
@@ -37,7 +37,7 @@ export const Search = () => {
               onChange={onInputChange}
             />
             <span onClick={handleSubmit}>
-              <i className="icon-search"></i>
+              <i className="icon-search" aria-hidden="true"></i>
             </span>
           </div>
         </form>

@@ -31,7 +31,10 @@ export const ModalPage = () => {
   return (
     <>
       {/* <div className="modalPage show-modal"> */}
-      <div className={`modalPage ${!isModalOpen ? 'show-modal' : ''}`}>
+      <div
+        aria-labelledby="card-title"
+        className={`modalPage ${!isModalOpen ? 'show-modal' : ''}`}
+      >
         <div className="modal-content">
           <div className="modal-header">
             <span onClick={handleCloseModal}>
@@ -43,7 +46,7 @@ export const ModalPage = () => {
               <img src={imgPoster} alt={movieSelected?.original_title} />
             </div>
             <div className="modal-body-description">
-              <h2>{movieSelected?.title}</h2>
+              <h2 id="card-title">{movieSelected?.title}</h2>
               <p> {movieSelected?.overview}</p>
               <div className="description-time">
                 <span>{movieSelected?.release_date}</span>
@@ -52,11 +55,11 @@ export const ModalPage = () => {
               </div>
               <div className="actions">
                 <button className="btn btn-yelow">
-                  <i className="icon-play"></i> VER AHORA
+                  <i className="icon-play" aria-hidden="true"></i> VER AHORA
                 </button>
 
                 <button className="btn btn-black">
-                  <i className="icon-plus"></i> VER DESPUÉS
+                  <i className="icon-plus" aria-hidden="true"></i> VER DESPUÉS
                 </button>
               </div>
             </div>

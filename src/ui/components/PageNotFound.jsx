@@ -3,7 +3,7 @@ import searchingImg from '../../assets/images/Searching.svg';
 export const PageNotFound = ({ resut = '' }) => {
   return (
     <>
-      <div className="page-notFound">
+      <div className="page-notFound" aria-label="page not found">
         <div className="wrapper">
           <div className="pnf-content">
             <div className="image">

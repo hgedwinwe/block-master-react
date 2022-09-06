@@ -7,7 +7,7 @@ export const Slider = () => {
 
   return (
     <>
-      <section className="slider">
+      <section className="slider" aria-label="banner de navegación">
         <div className="wrapper">
           <div className="slider-content">
             <div className="slide-container">

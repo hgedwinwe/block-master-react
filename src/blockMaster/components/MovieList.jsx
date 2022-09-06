@@ -34,7 +34,7 @@ export const MovieList = ({ movies = [], title = '' }) => {
 
   return (
     <>
-      <section className="movies">
+      <section className="movies" aria-labelledby="grid-de-peliculas">
         <div className="wrapper">
           <div className="movies-content">
             {isLoadingMovies ? (
@@ -43,7 +43,9 @@ export const MovieList = ({ movies = [], title = '' }) => {
               </div>
             ) : (
               <>
-                <h2 className="title">{title}</h2>
+                <h2 className="title" id="grid-de-peliculas">
+                  {title}
+                </h2>
                 <div className="grid-movies">
                   {movies.map((movie, index) => {
                     if (movies.length === index + 1) {

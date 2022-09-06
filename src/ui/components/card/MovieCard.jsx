@@ -23,7 +23,7 @@ export const MovieCard = ({ movie }) => {
 
   return (
     <>
-      <div className="movie-item">
+      <div className="movie-item" aria-label="card de pelicula">
         <div className="card" onClick={handleClick}>
           <div className="card-content">
             <div className="ranking-point">
@@ -35,7 +35,7 @@ export const MovieCard = ({ movie }) => {
                     : 'ranking-content'
                 }
               >
-                <i className="icon-star"></i>
+                <i className="icon-star" aria-hidden="true"></i>
                 <span className="point">{movie.vote_average}</span>
               </div>
             </div>
