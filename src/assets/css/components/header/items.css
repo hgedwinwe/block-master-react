@@ -1,9 +1,20 @@
 .items {
-  display: none;
-  flex-direction: row;
+  display: block;
+  position: absolute;
+  z-index: 12;
+  background-color: var(--background);
+  top: -200px;
+  left: 0;
+  right: 0;
+  block-size: 150px;
+/*   flex-direction: row;
   color: var(--white);
   gap: 3rem;
-  align-self: center;
+  align-self: center; */
+}
+
+.items.item-show{
+  top: 2rem;
 }
 
 .item {
@@ -21,7 +32,13 @@
 
 @media screen and (min-width: 768px) {
   .items{
+    position: initial;
+    block-size:auto;
     display: flex;
+    flex-direction: row;
+    color: var(--white);
+    gap: 3rem;
+    align-self: center;
   }
 }
 

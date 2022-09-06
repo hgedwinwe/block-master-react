@@ -2,14 +2,15 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo-block-buster.png';
 import { Search } from '../';
 import { useUiStore } from '../../hooks';
+import { useState } from 'react';
 
 export const Navbar = () => {
   const { openModalSearch } = useUiStore();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const openSearch = () => {
-    console.log('open....');
-    openModalSearch();
-  };
+  const openSearch = () => openModalSearch();
+
+  const toggle = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <>
@@ -19,7 +20,7 @@ export const Navbar = () => {
             <div className="logo">
               <img src={logo} alt="Logo block master" />
             </div>
-            <ul className="items">
+            <ul className={!isMenuOpen ? 'items' : 'items item-show'}>
               <li className="item">
                 <NavLink
                   className={({ isActive }) => `${isActive ? 'active' : ''}`}
@@ -52,8 +53,10 @@ export const Navbar = () => {
               <button onClick={openSearch} className="btn-icon">
                 <i className="icon-search"></i>
               </button>
-              <button className="btn-icon">
-                <i className="icon-menu"></i>
+              <button onClick={toggle} className="btn-icon">
+                <i
+                  className={`${!isMenuOpen ? 'icon-menu' : 'icon-delete'}`}
+                ></i>
               </button>
             </div>
           </nav>
