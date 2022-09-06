@@ -43,7 +43,7 @@ export const ModalPage = () => {
               <img src={imgPoster} alt={movieSelected?.original_title} />
             </div>
             <div className="modal-body-description">
-              <h2>{movieSelected?.original_title}</h2>
+              <h2>{movieSelected?.title}</h2>
               <p> {movieSelected?.overview}</p>
               <div className="description-time">
                 <span>{movieSelected?.release_date}</span>

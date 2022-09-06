@@ -1,15 +1,18 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { MovieList } from '../';
-import { startLoadonTopRated } from '../../store';
+import { useMovie } from '../../hooks';
 
 export const TopRatedPage = () => {
-  const dispatch = useDispatch();
-  const { topRated, title } = useSelector((state) => state.movie);
+  const { loadMovies, movies } = useMovie();
 
   useEffect(() => {
-    dispatch(startLoadonTopRated());
+    loadMovies();
   }, []);
 
-  return <MovieList movies={topRated} title={title} />;
+  return (
+    <MovieList
+      movies={movies.filter((resp) => resp.vote_average > 7)}
+      title="Más valoradas"
+    />
+  );
 };

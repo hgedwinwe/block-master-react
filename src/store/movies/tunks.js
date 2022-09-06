@@ -1,13 +1,12 @@
 import { getEnvVariables } from '../../helpers';
 import {
   isOnLoadingMovie,
+  onAddMovies,
   onClearSearchMovie,
   onDisabledCurrentMovie,
-  onGetAllMovies,
-  onGetLessRated,
-  onGetTopRated,
   onLoadCovers,
   onLoadMovies,
+  onReloadMovie,
   onSearchMovie,
   onSelectedCurrentMovie,
 } from './movieSlice';
@@ -31,9 +30,27 @@ export const startLoadinMovies = (page = 1) => {
   };
 };
 
-export const startLoadAll = () => {
+export const startAddMovies = (page) => {
+  return async (dispatch) => {
+    try {
+      dispatch(onReloadMovie(true));
+      const url = `${VITE_MDB_API_URL}/discover/movie?api_key=${VITE_API_KEY}&language=es-ES&page=${page}`;
+      const resp = await fetch(url);
+      const { results } = await resp.json();
+
+      console.log('recargando...');
+      dispatch(onAddMovies(results));
+      dispatch(onReloadMovie(false));
+    } catch (error) {
+      console.log('Error cargando peliculas');
+      console.log(error);
+    }
+  };
+};
+
+export const startReloadMovies = (isReload) => {
   return (dispatch) => {
-    dispatch(onGetAllMovies());
+    dispatch(onReloadMovie(isReload));
   };
 };
 

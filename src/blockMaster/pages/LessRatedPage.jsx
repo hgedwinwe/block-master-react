@@ -1,14 +1,17 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { startLoadLessRated } from '../../store';
+import { useMovie } from '../../hooks';
 import { MovieList } from '../components/MovieList';
 
 export const LessRatedPage = () => {
-  const dispatch = useDispatch();
-  const { lessRated, title } = useSelector((state) => state.movie);
+  const { loadMovies, movies } = useMovie();
 
   useEffect(() => {
-    dispatch(startLoadLessRated());
+    loadMovies();
   }, []);
-  return <MovieList movies={lessRated} title={title} />;
+  return (
+    <MovieList
+      movies={movies.filter((resp) => resp.vote_average < 7)}
+      title="Menos valoradas"
+    />
+  );
 };

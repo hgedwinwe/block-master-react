@@ -1,19 +1,17 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { startLoadAll } from '../store';
+import { useMovie } from '../hooks';
 import { MovieList } from './';
 
 export const BlockMasterPage = () => {
-  const { movies, title } = useSelector((state) => state.movie);
-  const dispatch = useDispatch();
+  const { loadMovies, movies } = useMovie();
 
   useEffect(() => {
-    dispatch(startLoadAll());
+    loadMovies();
   }, []);
 
   return (
     <>
-      <MovieList movies={movies} title={title} />
+      <MovieList movies={movies} title="Todas las peliculas" />
     </>
   );
 };

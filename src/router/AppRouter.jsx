@@ -11,7 +11,7 @@ import { Navbar, Slider } from '../ui';
 
 export const AppRouter = () => {
   const dispatch = useDispatch();
-  dispatch(startLoadinMovies());
+  // dispatch(startLoadinMovies());
   dispatch(startLoadinCovers());
 
   return (

@@ -3,11 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 export const movieSlice = createSlice({
   name: 'movie',
   initialState: {
-    title: '',
     isLoadingMovies: true,
+    reloadMovies: true,
     movies: [],
-    topRated: [],
-    lessRated: [],
     covers: [],
     movieSearch: [],
     movieSelected: null,
@@ -21,19 +19,18 @@ export const movieSlice = createSlice({
       state.movies = payload;
     },
 
-    onGetAllMovies: (state) => {
-      state.title = 'Todas las peliculas';
-      state.movies = state.movies;
+    onAddMovies: (state, { payload }) => {
+      payload.forEach((movie) => {
+        const exists = state.movies.some((dbMovie) => dbMovie.id === movie.id);
+
+        if (!exists) {
+          state.movies.push(movie);
+        }
+      });
     },
 
-    onGetTopRated: (state, { payload }) => {
-      state.title = 'Peliculas más valoradas';
-      state.topRated = state.movies.filter((resp) => resp.vote_average > 7);
-    },
-
-    onGetLessRated: (state, { payload }) => {
-      state.title = 'Peliculas menos valoradas';
-      state.lessRated = state.movies.filter((resp) => resp.vote_average < 7);
+    onReloadMovie: (state, { payload }) => {
+      state.reloadMovies = payload;
     },
 
     isOnLoadingMovie: (state, { payload }) => {
@@ -59,9 +56,7 @@ export const movieSlice = createSlice({
 });
 
 export const {
-  onGetAllMovies,
-  onGetLessRated,
-  onGetTopRated,
+  // onGetAllMovies,
   onLoadCovers,
   onLoadMovies,
   isOnLoadingMovie,
@@ -69,4 +64,6 @@ export const {
   onDisabledCurrentMovie,
   onSearchMovie,
   onClearSearchMovie,
+  onAddMovies,
+  onReloadMovie,
 } = movieSlice.actions;
