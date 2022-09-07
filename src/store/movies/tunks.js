@@ -38,7 +38,6 @@ export const startAddMovies = (page) => {
       const resp = await fetch(url);
       const { results } = await resp.json();
 
-      console.log('recargando...');
       dispatch(onAddMovies(results));
       dispatch(onReloadMovie(false));
     } catch (error) {

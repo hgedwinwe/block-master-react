@@ -9,7 +9,7 @@ export const MovieCard = ({ movie }) => {
   const imagePoster =
     movie.poster_path !== null
       ? `${VITE_MDB_API_IMAGE_URL}${movie.poster_path}`
-      : noImage;
+      : 'https://raw.githubusercontent.com/edgon85/block-master/0d01866aaaedd6d6879925a4553ff66397de7288/docs/searching.svg';
 
   // const imgPoster = `${VITE_MDB_API_IMAGE_URL}${movie.poster_path}`;
 

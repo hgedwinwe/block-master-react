@@ -1,5 +1,5 @@
-import { Link, NavLink } from 'react-router-dom';
-import logo from '../../assets/images/logo-block-buster.png';
+import { NavLink } from 'react-router-dom';
+import logo from './../../../public/logo.png';
 import { Search } from '../';
 import { useUiStore } from '../../hooks';
 import { useState } from 'react';
@@ -18,7 +18,10 @@ export const Navbar = () => {
         <div className="wrapper">
           <nav className="navigation" aria-label="Navegación">
             <div className="logo">
-              <img src={logo} alt="Logo block master" />
+              <img
+                src="https://raw.githubusercontent.com/edgon85/block-master/main/assets/images/logo-block-buster.png"
+                alt="Logo block master"
+              />
             </div>
             <ul className={!isMenuOpen ? 'items' : 'items item-show'}>
               <li className="item">

@@ -19,7 +19,6 @@ export const MovieList = ({ movies = [], title = '' }) => {
           increment();
 
           addMovies(counter);
-          console.log(counter);
           return;
         }
       });
